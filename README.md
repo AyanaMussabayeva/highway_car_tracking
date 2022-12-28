@@ -3,6 +3,9 @@
 ## Input data 
 - Static video of highway 'highway.mp4' should be stored in the 'highway_car_tracking/data/' folder
 
+## Running instructions
+-  python -m scripts.run 
+
 
 ## Pipeline description 
 
@@ -17,7 +20,7 @@
 
 ### Morphological operations
 - Erode with small kernel for noise removal. 
-- Dilatation with large kernel for connecting splitted by mistake contours
+- Dilation with large kernel for connecting splitted by mistake contours
 
 ### Binarization and contour analysis 
 - Custom thresholding for binarization 
@@ -31,7 +34,7 @@
 
 ### Tracking 
 - Linking bounding boxes from neighbouring frames by IoU > 0.05 
-- save_by_trackid() method is used to store the crops identified as same track in separate folders
+- save_by_trackid() method is used to store the crops identified as same track in separate folders if unique_only=False; if unique_only = True, then it stores only unique crops in one folder
 
 
 
