@@ -31,6 +31,9 @@
 
 ### Tracking 
 - Linking bounding boxes from neighbouring frames by IoU > 0.05 
+- save_by_trackid() method is used to store the crops identified as same track in separate folders
+
+
 
 
 
