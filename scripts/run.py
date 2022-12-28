@@ -32,6 +32,5 @@ if __name__ == "__main__":
     tracker.run(gen)
 
     tracker.save_by_trackid(gen, "outputs/tracks/") # stores all the crops identified as one track in separate folders 
-    tracker.save_by_trackid(gen, "outputs/unque_tracks/", unique_only = True) #stores unique tracks in one folder
     
     tracker.tracking_df.to_csv("outputs/tracking_report.csv")
