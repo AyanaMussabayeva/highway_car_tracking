@@ -21,14 +21,17 @@ if __name__ == "__main__":
     bs = BackgroundSubstraction(batch_size=200, inner_sample_rate=1)
     bs.fit(gen)
 
-    car_extract = CarExtractor(bs, 3, 9, 500)
+    car_extract = CarExtractor(bs, 3, 9, 500)  
     selected_bboxes, selected_sources = car_extract.run(gen)
 
     extraction_report = ExtractionReport(gen, selected_bboxes, selected_sources)
-    extraction_report.save_crops("outputs/saved_crops/")
+    extraction_report.save_crops("outputs/saved_crops/") #stores all of the crops in one folder
     extraction_report.report.to_csv("outputs/extraction_report.csv")
 
     tracker = Tracker(extraction_report, 0.01)
     tracker.run(gen)
-    tracker.save_by_trackid(gen, "outputs/tracks/")
+
+    tracker.save_by_trackid(gen, "outputs/tracks/") # stores all the crops identified as one track in separate folders 
+    tracker.save_by_trackid(gen, "outputs/unque_tracks/", unique_only = True) #stores unique tracks in one folder
+    
     tracker.tracking_df.to_csv("outputs/tracking_report.csv")
