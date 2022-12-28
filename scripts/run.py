@@ -25,9 +25,10 @@ if __name__ == "__main__":
     selected_bboxes, selected_sources = car_extract.run(gen)
 
     extraction_report = ExtractionReport(gen, selected_bboxes, selected_sources)
-    extraction_report.report
+    extraction_report.report.to_csv("outputs/extraction_report.csv")
     extraction_report.save_crops("outputs/saved_crops/")
 
     tracker = Tracker(extraction_report, 0.05)
     tracker.run(gen)
     tracker.save_by_trackid(gen, "outputs/tracks/")
+    tracker.tracking_df.to_csv("outputs/tracking_report.csv")
