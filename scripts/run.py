@@ -16,12 +16,12 @@ if __name__ == "__main__":
     video_path = "data/highway.mp4"
     sample_rate = 2
 
-    gen = FrameGen(video_path, sample_rate, 50)
+    gen = FrameGen(video_path, sample_rate)
 
-    bs = BackgroundSubstraction(batch_size=25, inner_sample_rate=2)
+    bs = BackgroundSubstraction(batch_size=200, inner_sample_rate=2)
     bs.fit(gen)
 
-    car_extract = CarExtractor(bs, 3, 9, 500)
+    car_extract = CarExtractor(bs, 3, 13, 500)
     selected_bboxes, selected_sources = car_extract.run(gen)
 
     extraction_report = ExtractionReport(gen, selected_bboxes, selected_sources)
