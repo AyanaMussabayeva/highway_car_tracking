@@ -8,7 +8,7 @@ class FrameGen:
         self.total_frames = total_frames
         self.cap = cv2.VideoCapture(self.video_path)
         if self.total_frames == None:
-            self.total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+            self.total_frames = int(self.cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
     def __iter__(self):
         for fno in range(0, self.total_frames, self.sample_rate):
