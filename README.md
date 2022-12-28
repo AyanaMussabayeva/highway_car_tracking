@@ -10,7 +10,8 @@
 - Sampling video into [680x340] frames with sample_rate = 2
 
 ### Background removal 
-- For each batch of images background is generated as median value of every pixel in each image of the corresponding batch 
+- For each batch of images background is generated as median value of every pixel in each image of the corresponding batch
+![Alt text](/misc/background.png "Background example") 
 
 ### Morphological operations
 - Erode with small kernel for noise removal. 
