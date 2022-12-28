@@ -11,7 +11,9 @@
 
 ### Background removal 
 - For each batch of images background is generated as median value of every pixel in each image of the corresponding batch
+
 ![Alt text](/misc/background.png "Background example") 
+
 
 ### Morphological operations
 - Erode with small kernel for noise removal. 
@@ -20,6 +22,12 @@
 ### Binarization and contour analysis 
 - Custom thresholding for binarization 
 - Outer contours selection with area > 500
+
+![Alt text](/misc/car.png "Frame example") 
+
+![Alt text](/misc/mask.png "Mask example") 
+
+
 
 ### Tracking 
 - Linking bounding boxes from neighbouring frames by IoU > 0.05 
